@@ -16,7 +16,6 @@ const NewQuotes = () => {
         axios.post('https://controll-17843-default-rtdb.europe-west1.firebasedatabase.app/quotes.json', newQuote)
             .then(response => {
                 console.log('Цитата успешно отправлена!', response.data);
-                // Сброс значений после успешной отправки
                 setCategory('');
                 setAuthor('');
                 setText('');
@@ -27,7 +26,7 @@ const NewQuotes = () => {
     };
 
     return (
-        <div className="quote-card">
+        <div className="quote-card container">
             <h3>Submit new quote</h3>
             <input
                 type="text"
@@ -36,12 +35,15 @@ const NewQuotes = () => {
                 onChange={(e) => setCategory(e.target.value)}
             />
             <input
+                className="authorInput"
                 type="text"
                 placeholder="Author"
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
             />
             <textarea
+                cols="40"
+                rows="5"
                 placeholder="Quote text"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
