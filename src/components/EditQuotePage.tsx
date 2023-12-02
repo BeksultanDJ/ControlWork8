@@ -1,12 +1,17 @@
 import  { useState } from 'react';
 import axios from 'axios';
 
-const EditQuote = ({ id, initialCategory, initialAuthor, initialText }) => {
+const EditQuote = ({ id, initialCategory = '', initialAuthor = '', initialText = '' }) => {
     const [category, setCategory] = useState(initialCategory);
     const [author, setAuthor] = useState(initialAuthor);
     const [text, setText] = useState(initialText);
 
     const handleSubmit = () => {
+        if (!category || !author || !text) {
+            alert('Вы ничего не ввели');
+            return;
+        }
+
         const updatedQuote = {
             author: author,
             category: category,
