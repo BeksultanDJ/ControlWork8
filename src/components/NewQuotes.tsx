@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios';
 
 const NewQuotes = () => {
     const [category, setCategory] = useState('');
@@ -6,10 +7,24 @@ const NewQuotes = () => {
     const [text, setText] = useState('');
 
     const handleSubmit = () => {
-        console.log("Submitted:", { category, author, text });
-        setCategory('');
-        setAuthor('');
-        setText('');
+        const newQuote = {
+            author: author,
+            category: category,
+            text: text
+        };
+
+        // Отправка данных на сервер
+        axios.post('https://controll-17843-default-rtdb.europe-west1.firebasedatabase.app/quotes.json', newQuote)
+            .then(response => {
+                console.log('Цитата успешно отправлена!', response.data);
+                // Сброс значений после успешной отправки
+                setCategory('');
+                setAuthor('');
+                setText('');
+            })
+            .catch(error => {
+                console.error('Ошибка при отправке цитаты:', error);
+            });
     };
 
     return (
