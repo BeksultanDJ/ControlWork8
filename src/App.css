@@ -64,10 +64,6 @@ nav {
   margin: 0 0 0 auto;
 }
 
-a {
-  color: deeppink;
-}
-
 .quote-card {
   display: flex;
   flex-direction: column;
@@ -101,9 +97,10 @@ p {
 }
 
 .cardLinks {
-  color: #1a1a1a;
+  color: white;
+  text-decoration: none;
 }
 
 .cardLinks:hover {
-  color: black;
+  color: white;
 }

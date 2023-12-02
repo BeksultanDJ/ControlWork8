@@ -13,7 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
+.navLinks {
   font-weight: 500;
   color: deeppink;
   text-decoration: inherit;
@@ -56,6 +56,9 @@ button:focus-visible {
   }
   a:hover {
     color: hotpink;
+  }
+  .cardLinks {
+    color: white;
   }
   button {
     background-color: #f9f9f9;
