@@ -104,3 +104,9 @@ p {
 .cardLinks:hover {
   color: white;
 }
+
+.sidebarElems {
+  text-decoration: underline;
+  color: lightpink;
+  cursor: pointer;
+}
