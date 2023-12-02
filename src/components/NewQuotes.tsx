@@ -28,12 +28,14 @@ const NewQuotes = () => {
     return (
         <div className="quote-card container">
             <h3>Submit new quote</h3>
-            <input
-                type="text"
-                placeholder="Category"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-            />
+            <select value={category} onChange={(e) => setCategory(e.target.value)}>
+                <option value="">Select a category</option>
+                <option value="Star Wars">Star Wars</option>
+                <option value="Famous people">Famous people</option>
+                <option value="Saying">Saying</option>
+                <option value="Humour">Humour</option>
+                <option value="Motivational">Motivational</option>
+            </select>
             <input
                 className="authorInput"
                 type="text"
