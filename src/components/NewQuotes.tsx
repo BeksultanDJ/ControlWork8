@@ -13,7 +13,6 @@ const NewQuotes = () => {
             text: text
         };
 
-        // Отправка данных на сервер
         axios.post('https://controll-17843-default-rtdb.europe-west1.firebasedatabase.app/quotes.json', newQuote)
             .then(response => {
                 console.log('Цитата успешно отправлена!', response.data);
