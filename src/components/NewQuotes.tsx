@@ -5,8 +5,16 @@ const NewQuotes = () => {
     const [author, setAuthor] = useState('');
     const [text, setText] = useState('');
 
+    const handleSubmit = () => {
+        console.log("Submitted:", { category, author, text });
+        setCategory('');
+        setAuthor('');
+        setText('');
+    };
+
     return (
         <div className="quote-card">
+            <h3>Submit new quote</h3>
             <input
                 type="text"
                 placeholder="Category"
@@ -24,9 +32,7 @@ const NewQuotes = () => {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
             ></textarea>
-            <h3>Category: {category}</h3>
-            <p>"{text}"</p>
-            <p>- {author}</p>
+            <button onClick={handleSubmit}>Сохранить</button>
         </div>
     );
 };
