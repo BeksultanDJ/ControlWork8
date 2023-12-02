@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import {NavLink} from "react-router-dom";
 
 interface Quote {
     id: string;
@@ -44,16 +45,18 @@ const Quotes: React.FC = () => {
         <div>
             <div className="container">
                 <h2>Цитаты</h2>
-                <ul>
                     {quotes.map((quote) => (
-                        <li key={quote.id}>
-                            <p><strong>Author:</strong> {quote.author}</p>
-                            <p><strong>Category:</strong> {quote.category}</p>
-                            <p><strong>Text:</strong> {quote.text}</p>
-                            <button onClick={() => handleDelete(quote.id)}>Удалить</button>
-                        </li>
+                        <div className="quoteCard" key={quote.id}>
+                            <div>
+                                <p>"{quote.text}"</p>
+                                <p>— {quote.author}</p>
+                            </div>
+                            <div>
+                                <button onClick={() => handleDelete(quote.id)}>Удалить</button>
+                                <button className="cardBtn"><NavLink className="cardLinks" to="/:id/EditQuote">Edit Quote</NavLink></button>
+                            </div>
+                        </div>
                     ))}
-                </ul>
             </div>
         </div>
     );
